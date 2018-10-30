@@ -1,0 +1,50 @@
+##### ENTIDADES #######
+
+UsuarioPremium(__idUsuario__,num_cartao,cvv).
+	-- idUsuario referencia Usuario
+Usuario(__idUsuario__,nome,email,senha).
+
+Artista(__nomeArtista__,dataDeFundação).
+
+Album(__nomeArtista__,__nomeAlbum__,duracao,dataLançamento).
+-- nomeArtista referencia Artista
+
+Musica(__nomeArtista__,__nomeAlbum__,__nomeMusica__,duração,ordem).
+-- nomeArtista referencia Artista
+-- nomeAlbum referencia Album
+
+Genero(__nomeGenero__).
+
+PlayList(__idPlaylist__,nomePlaylist).
+
+MusicaSalva(__idMusicasSalvas__).
+
+
+##### RELAÇÕES  #####
+
+SegueUsuario(__idUsuario__,__idUsuario__).
+-- 1-seguidor,2 seguido.
+-- idUsuario referencia Usuario
+
+Escuta(__idUsuario__,__nomeArtista__,__nomeAlbum__,__nomeMusica__,Data,Hora).
+-- idUsuario referencia Usuario
+-- nomeArtista, nomeAlbum, nomeMusica referencia Musica
+
+UsuarioPossuiPlaylist(__idUsuario__,__idPlaylist__).
+-- idUsuario referencia Usuario
+-- idPlaylist referencia Playlist
+
+PlaylistContemMusicas(__idPlaylist__,__nomeArtista__,__nomeAlbum__,__nomeMusica__).
+-- idPlaylist referencia Playlist
+-- nomeArtista, nomeAlbum, nomeMusica referencia Musica
+
+MusicaÉDoGenero(__nomeArtista__,__nomeAlbum__,__nomeMusica__,__nomeGenero__).
+-- nomeArtista, nomeAlbum, nomeMusica referencia Musica
+-- nomeGenero refencia Genero
+
+SegueArtista(__idUsuario__,__nomeArtista__).
+-- idUsuario referencia Usuario
+-- nomeArtista referencia Artista
+
+
+
