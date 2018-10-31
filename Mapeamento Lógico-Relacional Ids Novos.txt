@@ -1,6 +1,6 @@
 ##### ENTIDADES #######
 
-Usuario(__idUsuario__,nome,email,senha).
+Usuario(__idUsuario__,nomeUsuario,email,senha).
 
 UsuarioPremium(__idUsuario__,num_cartao,cvv).
 	-- idUsuario referencia Usuario
