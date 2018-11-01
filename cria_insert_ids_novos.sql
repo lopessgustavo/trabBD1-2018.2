@@ -39,7 +39,7 @@ VALUES (1, 'Xabluto', '12:01:01', NULL),
 (1, 'Bairro', '12:01:01', NULL),
 (1, 'Quico', '12:01:01', NULL);
 
--- -- Genero
+-- -- -- Genero
 -- INSERT INTO GENERO (NOME_GENERO)
 -- VALUES ('Rock'),
 -- ('Blues'),
@@ -58,5 +58,6 @@ VALUES (1, 'Xabluto', '12:01:01', NULL),
 -- -- Musica Salva
 -- INSERT INTO MUSICA_SALVA (ID_USUARIO)
 -- VALUES (1),
+-- (2),
 -- (3),
--- (6);
+-- (4);
