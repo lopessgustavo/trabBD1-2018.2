@@ -1,39 +1,47 @@
--- -- Usuario(__idUsuario__,nome,email,senha).
--- INSERT INTO USUARIO (NOME_USUARIO, EMAIL, SENHA)
--- VALUES ('Felipe', 'felipe@email', '123'),
--- ('Gustavo', 'gustavo@email', '321'),
--- ('Nayara', 'nayara@email', '456'),
--- ('Carlos', 'carlos@email', '654'),
--- ('Andre', 'andre@email', '789'),
--- ('Plastino', 'plastino@email', '987');
+-- Usuario(__idUsuario__,nome,email,senha).
+INSERT INTO USUARIO (NOME_USUARIO, EMAIL, SENHA)
+VALUES ('Felipe', 'felipe@email', '123'),
+('Gustavo', 'gustavo@email', '321'),
+('Nayara', 'nayara@email', '456'),
+('Carlos', 'carlos@email', '654'),
+('Andre', 'andre@email', '789'),
+('Plastino', 'plastino@email', '987');
 
 
--- -- -- UsuarioPremium(__idUsuario__,num_cartao,cvv).
--- INSERT INTO USUARIO_PREMIUM (ID_USUARIO, NUM_CARTAO, CVV)
--- VALUES (1, 123, 111),
--- (3, 321, 222),
--- (6, 456, 333);
+-- -- UsuarioPremium(__idUsuario__,num_cartao,cvv).
+INSERT INTO USUARIO_PREMIUM (ID_USUARIO, NUM_CARTAO, CVV)
+VALUES (1, 123, 111),
+(3, 321, 222),
+(6, 456, 333);
+
+-- Genero
+INSERT INTO GENERO (NOME_GENERO)
+VALUES ('Rock'),
+('Blues'),
+('Pop'),
+('Funk'),
+('Sertanejo');
 
 
--- -- -- Artista
--- INSERT INTO ARTISTA (NOME_ARTISTA, DATA_DE_FUNDACAO)
--- VALUES ('Metallica', "1981-01-01"),
--- ('Megadeth', "1983-01-01"),
--- ('Linkin Park', "1996-01-01"),
--- ('Bee Gees', "1958-01-01"),
--- ('Black Sabbath', "1968-01-01"),
--- ('Iron Maiden',"1965-01-01"),
--- ('Jorge Ben Jor',"1963-01-01"),
--- ('Chitaozinho e Xororo',"1969-01-01"),
--- ('Led Zeppelin',"1968-01-01"),
--- ('Of Monsters and Men',"2010-01-01"),
--- ('Phoenix',"1999-01-01");
+-- -- Artista
+INSERT INTO ARTISTA (NOME_ARTISTA, DATA_DE_FUNDACAO)
+VALUES ('Metallica', "1981-01-01"),
+('Megadeth', "1983-01-01"),
+('Linkin Park', "1996-01-01"),
+('Bee Gees', "1958-01-01"),
+('Black Sabbath', "1968-01-01"),
+('Iron Maiden',"1965-01-01"),
+('Jorge Ben Jor',"1963-01-01"),
+('Chitaozinho e Xororo',"1969-01-01"),
+('Led Zeppelin',"1968-01-01"),
+('Of Monsters and Men',"2010-01-01"),
+('Phoenix',"1999-01-01");
 
--- INSERT INTO ALBUM(ID_ARTISTA,NOME_ALBUM,DURACAO,DATA_LANCAMENTO)
--- VALUES (1,'Ride the Lightning',"00:47:00","1984-01-01"),
--- (1,'...And Justice For All',"01:05:00","1988-01-01"),
--- (2,'Rust in Peace',"00:40:00","1990-01-01"),
--- (4,'Children of The World',"00:39:00","1976-01-01")
+INSERT INTO ALBUM(ID_ARTISTA,NOME_ALBUM,DURACAO,DATA_LANCAMENTO,ID_GENERO)
+VALUES (1,"Ride the Lightning","00:47:00","1984-01-01",1),
+	(1,"...And Justice For All","01:05:00","1988-01-01",1),
+	(2,"Rust in Peace","00:40:00","1990-01-01",1),
+	(4,"Children of The World","00:39:00","1976-01-01",1);
 
 INSERT INTO MUSICA(ID_ALBUM,NOME_MUSICA,DURACAO,ORDEM)
 VALUES (1,'Fight Fire With Fire',"00:04:45",1),
@@ -73,20 +81,13 @@ VALUES (1,'Fight Fire With Fire',"00:04:45",1),
 (4,"The Way it Was","00:03:22",9),
 (4,"Children of The World","00:03:10",10);
 
-INSERT INTO PLAYLIST (NOME_PLAYLIST)
-VALUES ('PL1'),
-('PL2'),
-('PL3'),
-('PL4'),
-('PL5');
+INSERT INTO PLAYLIST (NOME_PLAYLIST,ID_USUARIO)
+VALUES ('PL1',1),
+('PL2',2),
+('PL3',3),
+('PL4',4),
+('PL5',1);
 
--- Genero
-INSERT INTO GENERO (NOME_GENERO)
-VALUES ('Rock'),
-('Blues'),
-('Pop'),
-('Funk'),
-('Sertanejo');
 
 -- Musica Salva
 INSERT INTO MUSICA_SALVA (ID_USUARIO)
