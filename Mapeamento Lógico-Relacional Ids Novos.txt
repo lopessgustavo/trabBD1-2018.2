@@ -1,24 +1,46 @@
 ##### ENTIDADES #######
 
-Usuario(__idUsuario__,nomeUsuario,email,senha).
+USUARIO(__ID_USUARIO__, NOME_USUARIO,   EMAIL      , SENHA).
+            NN		1	    NN        NN(UNIQUE) 2   NN
 
-UsuarioPremium(__idUsuario__,num_cartao,cvv).
-	-- idUsuario referencia Usuario
 
-Artista(__idArtista__,nomeArtista,dataDeFundação).
+USUARIO_PREMIUM(__ID_USUARIO__, NUM_CARTAO, CVV).
+					 NN      1       NN       NN
+	
+-- ID_USUARIO referencia USUARIO
 
-Album(__idAlbum__,idArtista,nomeAlbum,duracao,dataLançamento).
--- idArtista referencia Artista
 
-Musica(__idMusica__,idAlbum,nomeMusica,duração,ordem).
--- idAlbum referencia Album
+ARTISTA(__ID_ARTISTA__, NOME_ARTISTA, DATA_DE_FUNDACAO).
+			NN      1        NN    2        
+			
+			
+ALBUM(__ID_ALBUM__, ID_ARTISTA, NOME_ALBUM, DURACAO, DATA_LANCAMENTO, ID_GENERO).
+		  NN    1       NN   2     NN   2     NN                            
 
-Genero(__idGenero__,nomeGenero).
+-- ID_ARTISTA referencia ARTISTA
+-- ID_GENERO referencia GENERO
 
-PlayList(__idPlaylist__,nomePlaylist).
 
-MusicaSalva(__idMusicaSalva__,idUsuario).
--- idUsuario referencia Usuario
+MUSICA(__ID_MUSICA__, ID_ALBUM , NOME_MUSICA, DURACAO, ORDEM).
+            NN    1     NN   2       NN    2     NN      
+
+-- ID_ALBUM referencia ALBUM
+
+
+GENERO(__ID_GENERO__, NOME_GENERO).
+		    NN    1        NN   2
+
+
+PLAYLIST(__ID_PLAYLIST__, NOME_PLAYLIST, ID_USUARIO).
+				NN    1        NN           NN
+				
+-- ID_USUARIO referencia USUARIO
+
+				
+MUSICA_SALVA(__ID_MUSICA_SALVA__, ID_USUARIO).
+				     NN       1        NN
+
+-- ID_USUARIO referencia USUARIO
 
 
 
@@ -27,33 +49,37 @@ MusicaSalva(__idMusicaSalva__,idUsuario).
 
 ##### RELAÇÕES  #####
 
-SegueUsuario(__idUsuario__,__idUsuario__).
--- 1-seguidor,2 seguido.
--- idUsuario referencia Usuario
+SEGUE_USUARIO(__ID_SEGUIDOR__, __ID_SEGUIDO__).
+					NN   1          NN   1
 
-Escuta(__idUsuario__,__idMusica__,Data,Hora).
--- idUsuario referencia Usuario
--- idMusica referencia Musica
+-- ID_SEGUIDOR referencia USUARIO
+-- ID_SEGUIDO referencia USUARIO
 
-UsuarioPossuiPlaylist(__idUsuario__,__idPlaylist__).
--- idUsuario referencia Usuario
--- idPlaylist referencia Playlist
 
-PlaylistContemMusicas(__idPlaylist__,__idMusica__).
--- idPlaylist referencia Playlist
--- idMusica referencia Musica
+ESCUTA(__ID_USUARIO__, __ID_MUSICA__, __DATA__, __HORA__).
+			NN     1        NN     1      NN 1    NN   1
 
-MusicaSalvaContemMusica(__idMusicaSalva__,__idMusica__).
--- idMusicaSalva referencia MusicaSalva
--- idMusica referencia Musica
+-- ID_USUARIO referencia USUARIO
+-- ID_MUSICA referencia MUSICA
 
-MusicaÉDoGenero(__idMusica__,__idGenero__).
--- idMusica referencia Musica
--- idGenero refencia Genero
 
-SegueArtista(__idUsuario__,__idArtista__).
--- idUsuario referencia Usuario
--- idArtista referencia Artista
+PLAYLIST_CONTEM_MUSICA(__ID_PLAYLIST__, __ID_MUSICA__).
+							NN     1        NN      1
+
+-- ID_PLAYLIST referencia PLAYLIST
+-- ID_MUSICA referencia MUSICA
+
+MUSICA_SALVA_CONTEM_MUSICA(__ID_MUSICA_SALVA__, __ID_MUSICA__).
+								NN         1          NN   1
+
+-- ID_MUSICA_SALVA referencia MUSICA_SALVA
+-- ID_MUSICA referencia MUSICA
+
+SEGUE_ARTISTA(__ID_USUARIO__, __ID_ARTISTA__).
+					NN     1        NN     1
+
+-- ID_USUARIO referencia USUARIO
+-- ID_ARTISTA referencia ARTISTA
 
 
 
